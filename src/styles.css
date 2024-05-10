@@ -1,0 +1,651 @@
+#app { height: 100% }
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+.font-overtake {
+  font-family: 'Overtaking', sans-serif;
+  font-size: 52px;
+}
+
+body {
+  background: url(/backgroundelectronics2.png) no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  place-items: center;
+  opacity: 0.9;
+}
+
+.torchlightContainer {
+  position: absolute;
+  background: rgba(255,255,255,0);
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.torchlight {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 2;
+  background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.02) 9%,  rgba(255, 255, 255, 0.0005) 90%, rgba(255, 255, 255, 0) 100%);
+  animation-duration: 3s;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  background-color: rgb(27, 27, 27);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 30px;
+  color:rgb(209, 209, 179);
+  width: 900px;
+  height: 900px;
+  border-radius: 55px;
+  outline: 15px solid rgb(51, 51, 51);
+  padding: 50px;
+  text-align: center;
+}
+
+.cellphoneContainer {
+  position: absolute;
+  left: 10.75%;
+  width: 375px;
+  height: 100%;
+  pointer-events: none;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.cellphoneImageContainer {
+  object-fit: contain;
+  position: relative;
+  pointer-events: none;
+  width: 100%;
+  left: 0;
+  display: flex;
+  z-index: 12;
+  animation: fadeInAnimation 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+.pointers {
+  pointer-events: auto;
+}
+
+.cellphone {
+  width: 100%;
+  left: 0;
+  opacity: 0;
+  animation: fadeInAnimation 2s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-play-state: paused;
+}
+
+.circle {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(240, 238, 157, 0.459);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 13;
+  left: 0;
+}
+
+.numberField {
+  z-index: 14;
+  top: 19%;
+  align-items: right;
+  position: absolute;
+  width: 80%;
+  background-color: transparent;
+  color:rgb(255, 255, 255);
+  text-align: right;
+  align-self: right;
+  font-size: 40px;
+  right: 10%;
+}
+
+.baudModemTop {
+  position: absolute;
+  object-fit: contain;
+  width: 100%;
+  top: 0;
+  pointer-events: none;
+  animation: moveInFromTop 4s;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+  z-index: 11;
+}
+
+.baudModemBottom {
+  position: absolute;
+  object-fit: contain;
+  pointer-events: none;
+  width: 100%;
+  bottom: 0;
+  animation: moveInFromBottom 4s;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+  z-index: 11;
+}
+
+.glitchcontainer {
+  display: inline-block;
+  position: relative;
+  width: 75px;
+  height: 75px;
+  padding: 25px;
+}
+
+.codeLogo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 75px;
+  height: 75px;
+  animation-fill-mode: both;
+  animation: glitchLogo 0.5s infinite;
+  animation-play-state: paused;
+}
+
+.codeLogoGlitch {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 75px;
+  height: 75px;
+  pointer-events: none;
+  z-index: 9;
+  animation-fill-mode: both;
+  animation: glitch 0.5s infinite;
+  visibility: hidden;
+  animation-play-state: paused;
+}
+
+.animate {
+  animation-play-state: running;
+}
+
+.pause {
+  animation-play-state: paused;
+}
+
+.emoticonRow {
+  width: 75%; 
+  margin: 0 auto; 
+}
+
+.emoticonRow::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.entranceVeilTop {
+  position: absolute;
+  opacity: 1;
+  background-color:rgb(0, 0, 0);
+  left: 0px;
+  top: 0%;
+  width: 100%;
+  height: 50%;
+  z-index: 15;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  animation: entranceTop 2.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+
+.entranceVeilBottom {
+  position: absolute;
+  opacity: 1;
+  background-color:rgb(0, 0, 0);
+  left: 0px;
+  bottom: 0%;
+  width: 100%;
+  height: 50%;
+  z-index: 15;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  animation: entranceBottom 2.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+
+.light {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 10%;
+  left: 0;
+  top: 0;
+  margin-left: -100px;
+  margin-top: -100px;
+  border-radius: 100%;
+  background-image: linear-gradient(45deg, #ff8000, #ffa040);
+  background-repeat: repeat;
+  background-size: 20px 20px;
+  z-index: 14;
+  /* shadows for 3d effect */
+  box-shadow: inset 3px 0px 10px rgba(255, 255, 255, 0.5), inset 10px 10px 50px rgba(255, 255, 255, 0.2), inset -10px -10px 50px rgba(0, 0, 0, 0), 0px 0px 10px rgba(0, 0, 0, 0);
+}
+
+.animateEntranceTop {
+  animation-play-state: running;
+}
+
+.pauseEntranceTop {
+  animation-play-state: paused;
+}
+
+.animateEntranceBottom {
+  animation-play-state: running;
+}
+
+.pauseEntranceBottom {
+  animation-play-state: paused;
+}
+
+.swiper-3d .swiper-slide-shadow,
+.swiper-3d .swiper-slide-shadow-left,
+.swiper-3d .swiper-slide-shadow-right,
+.swiper-3d .swiper-slide-shadow-top,
+.swiper-3d .swiper-slide-shadow-bottom,
+.swiper-3d .swiper-slide-shadow,
+.swiper-3d .swiper-slide-shadow-left,
+.swiper-3d .swiper-slide-shadow-right,
+.swiper-3d .swiper-slide-shadow-top,
+.swiper-3d .swiper-slide-shadow-bottom {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  border-radius: 55px;
+}
+.swiper-3d .swiper-slide-shadow {
+  background: rgba(0, 0, 0, 0.85);
+}
+.swiper-3d .swiper-slide-shadow-left {
+  background-image: linear-gradient(to left, rgba(12, 12, 12, 0.9), rgba(0, 0, 0, 0.7));
+}
+.swiper-3d .swiper-slide-shadow-right {
+  background-image: linear-gradient(to right, rgba(12, 12, 12, 0.9), rgba(0, 0, 0, 0.7));
+}
+.swiper-3d .swiper-slide-shadow-top {
+  background-image: linear-gradient(to top, rgba(12, 12, 12, 0.9), rgba(0, 0, 0, 0.7));
+}
+.swiper-3d .swiper-slide-shadow-bottom {
+  background-image: linear-gradient(to bottom, rgba(12, 12, 12, 0.9), rgba(0, 0, 0, 0.7));
+}
+
+.video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+@keyframes glitch {
+  0% { clip-path: inset(98% 0 0 0); }
+  31% { clip-path: inset(22% 0 75% 0); }
+  42% { clip-path: inset(69% 0 29% 0); }
+  100% { clip-path:  inset(0 0 95% 0); }
+}
+
+@keyframes glitchLogo {
+  0% { left: 0px; top: 0px }
+  29% { left: 0px; top: 0px }
+  32% { left: -6px; top: -6px }
+  35% { left: 0px; top: 0px }
+  100% { left: 0px; top: 0px }
+}
+
+@keyframes moveInFromTop {
+  0% {
+    top: -60%;
+  }
+  67% {
+    top: -15%;
+  }
+  100% {
+    top: -12%;
+  }
+}
+
+@keyframes moveInFromBottom {
+  0% {
+    bottom: -60%;
+  }
+  67% {
+    bottom: -15%;
+  }
+  100% {
+    bottom: -12%;
+  }
+}
+
+@keyframes entranceTop {
+  0% {
+    top: 0%;
+  }
+  33% {
+    top: -16%;
+  }
+  100% {
+    top: -50%;
+  }
+}
+
+@keyframes entranceBottom {
+  0% {
+    bottom: 0%;
+  }
+  33% {
+    bottom: -16%;
+  }
+  100% {
+    bottom: -50%;
+  }
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes torchlightPath1 {
+  0% {
+    left: 49.86%;
+    top: 14.64%;
+  }
+  33% {
+    left: 49.86%;
+    top: 25.82%;
+  }
+  100% {
+    left: 49.86%;
+    top: 38.95%;
+  }
+}
+
+@keyframes torchlightPath2 {
+  0% {
+    left: 49.86%;
+    top: 38.95%;
+  }
+  33% {
+    left: 49.86%;
+    top: 25.82%;
+  }
+  100% {
+    left: 49.86%;
+    top: 14.64%;
+  }
+}
+
+@keyframes torchlightPath3 {
+  0% {
+    left: 75.72%;
+    top: 20.85%;
+  }
+  33% {
+    left: 62.19%;
+    top: 21.21%;
+  }
+  100% {
+    left: 57.46%;
+    top: 28.57%;
+  }
+}
+
+@keyframes torchlightPath4 {
+  0% {
+    left: 57.46%;
+    top: 28.57%;
+  }
+  33% {
+    left: 62.19%;
+    top: 21.21%;
+  }
+  100% {
+    left: 75.72%;
+    top: 20.85%;
+  }
+}
+
+@keyframes torchlightPath5 {
+  0% {
+    left: 41.50%;
+    top: 84.74%;
+  }
+  33% {
+    left: 41.37%;
+    top: 63.71%;
+  }
+  100% {
+    left: 44.11%;
+    top: 58.74%;
+  }
+}
+
+@keyframes torchlightPath6 {
+  0% {
+    left: 41.50%;
+    top: 84.74%;
+  }
+  33% {
+    left: 41.37%;
+    top: 63.71%;
+  }
+  100% {
+    left: 44.11%;
+    top: 58.74%;
+  }
+}
+
+@keyframes torchlightPath7 {
+  0% {
+    left: 26.08%;
+    top: 81.63%;
+  }
+  33% {
+    left: 31.74%;
+    top: 81.63%;
+  }
+  100% {
+    left: 33.68%;
+    top: 78.44%;
+  }
+}
+
+@keyframes torchlightPath8 {
+  0% {
+    left: 33.68%;
+    top: 78.44%;
+  }
+  33% {
+    left: 31.74%;
+    top: 81.63%;
+  }
+  100% {
+    left: 26.08%;
+    top: 81.63%;
+  }
+}
+
+@keyframes torchlightPath9 {
+  0% {
+    left: 17.76%;
+    top: 40.82%;
+  }
+  23% {
+    left: 20.41%;
+    top: 44.37%;
+  }
+  63% {
+    left: 29.50%;
+    top: 44.72%;
+  }
+  83% {
+    left: 30.44%;
+    top: 43.03%;
+  }
+  100% {
+    left: 33.41%;
+    top: 43.39%;
+  }
+}
+
+@keyframes torchlightPath10 {
+  0% {
+    left: 33.41%;
+    top: 43.39%;
+  }
+  23% {
+    left: 30.44%;
+    top: 43.03%;
+  }
+  63% {
+    left: 29.50%;
+    top: 44.72%;
+  }
+  83% {
+    left: 20.41%;
+    top: 44.37%;
+  }
+  100% {
+    left: 17.76%;
+    top: 40.82%;
+  }
+}
+
+@keyframes torchlightPath11 {
+  0% {
+    left: 64.03%;
+    top: 84.74%;
+  }
+  23% {
+    left: 64.03%;
+    top: 70.10%;
+  }
+  83% {
+    left: 65.78%;
+    top: 67.44%;
+  }
+  100% {
+    left: 65.69%;
+    top: 61.85%;
+  }
+}
+
+@keyframes torchlightPath12 {
+  0% {
+    left: 65.69%;
+    top: 61.85%;
+  }
+  23% {
+    left: 65.78%;
+    top: 67.44%;
+  }
+  83% {
+    left: 64.03%;
+    top: 70.10%;
+  }
+  100% {
+    left: 64.03%;
+    top: 84.74%;
+  }
+}
+
+@keyframes torchlightPath13 {
+  0% {
+    left: 74.06%;
+    top: 28.31%;
+  }
+  33% {
+    left: 63.71%;
+    top: 28.57%;
+  }
+  100% {
+    left: 55.53%;
+    top: 40.91%;
+  }
+}
+
+@keyframes torchlightPath14 {
+  0% {
+    left: 55.53%;
+    top: 40.91%;
+  }
+  33% {
+    left: 63.71%;
+    top: 28.57%;
+  }
+  100% {
+    left: 74.06%;
+    top: 28.31%;
+  }
+}
+
+	
+	
+	
+
+
+	
+	
+	
+	
+
+
+
+
+	
+	
+	
+	
+	
+
+	
+	
