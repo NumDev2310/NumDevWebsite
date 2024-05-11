@@ -1,29 +1,48 @@
 #app { height: 100% }
 html,
+
 body {
   position: relative;
   height: 100%;
-}
-
-.font-overtake {
-  font-family: 'Overtaking', sans-serif;
-  font-size: 52px;
 }
 
 body {
   background: url(/backgroundelectronics2.png) no-repeat center center fixed;
   background-size: cover;
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  place-items: center;
+  place-content: center center;
+  place-items: center center;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
   opacity: 0.9;
+}
+
+.bodyContainer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  opacity: 0.9;
+  z-index: 5;
+}
+
+.font-overtake {
+  font-family: 'Overtaking', sans-serif;
+  font-size: 47px;
 }
 
 .torchlightContainer {
   position: absolute;
   background: rgba(255,255,255,0);
   background-size: cover;
+  user-select: none;
   width: 100%;
   height: 100%;
 }
@@ -32,7 +51,9 @@ body {
   position: absolute;
   width: 300px;
   height: 300px;
-  transform: translate(-50%, -50%);
+  place-self: center;
+  justify-self: center;
+  user-select: none;
   border-radius: 50%;
   z-index: 2;
   background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.02) 9%,  rgba(255, 255, 255, 0.0005) 90%, rgba(255, 255, 255, 0) 100%);
@@ -41,8 +62,10 @@ body {
 
 .swiper {
   width: 100%;
-  padding-top: 200px;
-  padding-bottom: 200px;
+  max-height: 800px;
+  min-height: 80%;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .swiper-slide {
@@ -50,14 +73,49 @@ body {
   background-size: cover;
   background-color: rgb(27, 27, 27);
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 30px;
+  font-size: 23px;
   color:rgb(209, 209, 179);
-  width: 900px;
-  height: 900px;
+  width: 45%;
+  max-width: 650px;
+  max-height: 675px;
+  min-height: 50%;
   border-radius: 55px;
   outline: 15px solid rgb(51, 51, 51);
   padding: 50px;
+  margin: auto;
   text-align: center;
+  place-items: center;
+  justify-items: center;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-position: center;
+  background-size: cover;
+  background-color: rgb(17, 17, 17);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 22px;
+  color:rgb(209, 209, 179);
+  width: 45%;
+  max-width: 550px;
+  max-height: 575px;
+  min-height: 30%;
+  border-radius: 35px;
+  outline: 15px solid rgb(141, 135, 103);
+  padding: 60px;
+  z-index: 16;
+  margin: auto;
+  text-align: center;
+  place-items: center;
+  justify-items: center;
+  animation: fadeInAnimation 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-play-state: paused;
 }
 
 .cellphoneContainer {
@@ -65,9 +123,11 @@ body {
   left: 10.75%;
   width: 375px;
   height: 100%;
+  user-select: none;
   pointer-events: none;
   overflow-y: hidden;
-  overflow-x: hidden;
+  overflow-x: visible;
+  overflow: visible;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -77,10 +137,14 @@ body {
 
 .cellphoneImageContainer {
   object-fit: contain;
-  position: relative;
+  position: absolute;
   pointer-events: none;
-  width: 100%;
+  height: 60%;
+  max-height: 800px;
   left: 0;
+  top: 20%;
+  user-select: none;
+  overflow-x: visible;
   display: flex;
   z-index: 12;
   animation: fadeInAnimation 2s;
@@ -96,11 +160,32 @@ body {
   width: 100%;
   left: 0;
   opacity: 0;
+  overflow: visible;
+  user-select: none;
   animation: fadeInAnimation 2s;
   animation-timing-function: linear;
   animation-fill-mode: both;
   animation-iteration-count: 1;
   animation-play-state: paused;
+  z-index: 12;
+}
+
+.modemImage {
+  width: 115%;
+  position: absolute;
+  top: 98%;
+  left: 0;
+  opacity: 0;
+  transform: translate(-40%, 0%);
+  user-select: none;
+  overflow: visible;
+  pointer-events: none;
+  animation: fadeInAnimation 2s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-play-state: paused;
+  z-index: 11;
 }
 
 .circle {
@@ -110,7 +195,18 @@ body {
   background-color: rgba(240, 238, 157, 0.459);
   border-radius: 50%;
   position: absolute;
+  pointer-events: none;
   z-index: 13;
+  left: 0;
+}
+
+.circleDial {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 14;
   left: 0;
 }
 
@@ -119,6 +215,7 @@ body {
   top: 19%;
   align-items: right;
   position: absolute;
+  user-select: none;
   width: 80%;
   background-color: transparent;
   color:rgb(255, 255, 255);
@@ -132,11 +229,14 @@ body {
   position: absolute;
   object-fit: contain;
   width: 100%;
-  top: 0;
+  bottom: 110%;
+  display: inline;
+  user-select: none;
   pointer-events: none;
   animation: moveInFromTop 4s;
   animation-fill-mode: both;
   animation-timing-function: linear;
+  animation-play-state: paused;
   z-index: 11;
 }
 
@@ -144,28 +244,33 @@ body {
   position: absolute;
   object-fit: contain;
   pointer-events: none;
+  display: inline;
   width: 100%;
-  bottom: 0;
+  top: 110%;
+  user-select: none;
   animation: moveInFromBottom 4s;
   animation-fill-mode: both;
   animation-timing-function: linear;
+  animation-play-state: paused;
   z-index: 11;
 }
 
 .glitchcontainer {
   display: inline-block;
   position: relative;
-  width: 75px;
-  height: 75px;
-  padding: 25px;
+  width: 4%;
+  height: 4%;
+  user-select: none;
+  padding-right: 75px;
+  padding-top: 75px;
 }
 
 .codeLogo {
   position: absolute;
   left: 0;
   top: 0;
-  width: 75px;
-  height: 75px;
+  width: 70%;
+  user-select: none;
   animation-fill-mode: both;
   animation: glitchLogo 0.5s infinite;
   animation-play-state: paused;
@@ -175,10 +280,10 @@ body {
   position: absolute;
   left: 2px;
   top: 2px;
-  width: 75px;
-  height: 75px;
+  width: 70%;
   pointer-events: none;
   z-index: 9;
+  user-select: none;
   animation-fill-mode: both;
   animation: glitch 0.5s infinite;
   visibility: hidden;
@@ -195,7 +300,8 @@ body {
 
 .emoticonRow {
   width: 75%; 
-  margin: 0 auto; 
+  margin: 0 auto;
+  user-select: none;
 }
 
 .emoticonRow::after {
@@ -213,6 +319,7 @@ body {
   width: 100%;
   height: 50%;
   z-index: 15;
+  user-select: none;
   overflow-y: hidden;
   overflow-x: hidden;
   animation: entranceTop 2.3s;
@@ -230,6 +337,7 @@ body {
   width: 100%;
   height: 50%;
   z-index: 15;
+  user-select: none;
   overflow-y: hidden;
   overflow-x: hidden;
   animation: entranceBottom 2.3s;
@@ -339,25 +447,49 @@ body {
 
 @keyframes moveInFromTop {
   0% {
-    top: -60%;
+    bottom: 110%;
   }
-  67% {
-    top: -15%;
+  77% {
+    bottom: 87%;
   }
   100% {
-    top: -12%;
+    bottom: 80%;
   }
 }
 
 @keyframes moveInFromBottom {
   0% {
-    bottom: -60%;
+    top: 110%;
   }
-  67% {
-    bottom: -15%;
+  77% {
+    top: 87%;
   }
   100% {
-    bottom: -12%;
+    top: 80%;
+  }
+}
+
+@keyframes moveOutFromTop {
+  0% {
+    bottom: 80%;
+  }
+  67% {
+    bottom: 90%;
+  }
+  100% {
+    bottom: 110%;
+  }
+}
+
+@keyframes moveOutFromBottom {
+  0% {
+    top: 80%;
+  }
+  67% {
+    top: 90%;
+  }
+  100% {
+    top: 110%;
   }
 }
 
@@ -391,6 +523,15 @@ body {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes fadeOutAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
